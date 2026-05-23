@@ -181,7 +181,8 @@
             <p class="fansyfont paragra">在五十餘年的歲月裏，文獎除了舉辦徵文比賽及出版文集外，還舉辦文學講座、電影／步行籌款、文學營、文社及文學創作研習室等，為香港青年提供了不少文化藝術活動。文獎的資金及人力並非經常足夠，第四、十一、十五、十七、廿一及廿八屆之徵文比賽皆因此停辦。全賴各界（包括一眾參賽者、作家、贊助商和歷屆幹事）幫助與支持，文獎才得以將傳統延續，並發展成一個具規模的文學組織。</p>
             <p class="fansyfont paragra">青年文學獎已正式走完五十年，向下半世紀前進，未來一年將會是新的篇章。本協會一直在普及文學的道路上一往直前，興幸的是有不少志同道合者在途中加入與幫助，青年文學獎才能越過大小風雨，繼續前行。與此同時，本會亦不會放棄創新，為這個充滿年代感的組織注入新思想、新風氣，更好地走下去。</p>
 
-            <a href="aboutus.html?p=committees" class="text-button w3-right" style="margin-top: 40px;text-decoration: none;">本屆及歷屆幹事會 →</a>
+            <a href="aboutus.html?p=judges" class="text-button w3-right" style="text-decoration:none;margin-top: 40px;">歷屆評審 →</a>
+            
             <br>
         </div>
 
@@ -202,8 +203,8 @@
                 <p class="w3-opacity" style="margin-bottom: 35px;">香港科技大學工商管理系</p>
             </div>
 
-            <a href="aboutus.html?p=intro" class="text-button w3-left" style="text-decoration:none;text-align: left !important; margin-top: 40px;">← 青年文學獎 : 簡介</a>
-            <a href="aboutus.html?p=awardedworks" class="text-button w3-right" style="text-decoration:none;margin-top: 40px;">歴年得奬作品名單 →</a>
+            
+            <a href="aboutus.html?p=awardedworks" class="text-button w3-left" style="text-decoration:none;text-align: left !important; margin-top: 40px;">← 歴年得奬作品名單</a>
             <br>
         </div>
 
@@ -223,8 +224,8 @@
                 </ul>
             </div>
 
-            <a href="aboutus.html?p=committees" class="text-button w3-left" style="text-decoration:none;text-align: left !important; margin-top: 40px;">← 本屆及歷屆幹事會</a>
-            <a href="aboutus.html?p=judges" class="text-button w3-right" style="text-decoration:none;margin-top: 40px;">歷屆評審 →</a>
+            <a href="aboutus.html?p=judges" class="text-button w3-left" style="text-decoration:none;text-align: left !important; margin-top: 40px;">← 歷屆評審</a>
+            <a href="aboutus.html?p=committees" class="text-button w3-right" style="margin-top: 40px;text-decoration: none;">本屆及歷屆幹事會 →</a>
             <br>
         </div>
 
@@ -242,7 +243,8 @@
                 <li style="padding:10px; display: none;list-style-type: circle" id="judges_name_label"><h4 class="fansyfont">洪曉嫻</h4></li>
             </div>
 
-            <a href="aboutus.html?p=awardedworks" class="text-button w3-left" style="text-decoration:none;text-align: left !important; margin-top: 40px;">← 歴年得奬作品名單</a>
+            <a href="aboutus.html?p=intro" class="text-button w3-left" style="text-decoration:none;text-align: left !important; margin-top: 40px;">← 青年文學獎 : 簡介</a>
+            <a href="aboutus.html?p=awardedworks" class="text-button w3-right" style="text-decoration:none;margin-top: 40px;">歴年得奬作品名單 →</a>
             <br>
         </div>
     </div>
@@ -360,7 +362,7 @@
             });
         }
 
-        window.getAwardInfo = getJudgesInfo;
+        window.getJudgesInfo = getJudgesInfo;
 
         function initialiCommitte(){
             get(child(dbRef, 'committee_info/existingcommittees')).then((snapshot) => {
