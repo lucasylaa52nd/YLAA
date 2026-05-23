@@ -208,7 +208,7 @@
         </div>
 
         <div id="awardedworks" style="display: none" class="pages">
-            <select name="awardees" id="awardee_select" onchange="" style="margin-top: 50px;">
+            <select name="awardees" id="awardee_select" onchange="getAwardeeInfo(document.getElementById('awardee_select')).value" style="margin-top: 50px;">
                 <option value="" id="awardee_selector"></option>
             </select>
 
@@ -229,7 +229,7 @@
         </div>
 
         <div id="judges" style="display: none" class="pages">
-            <select name="judges" id="judges_select" onchange="" style="margin-top: 50px;">
+            <select name="judges" id="judges_select" onchange="getJudgesInfo(document.getElementById('judges_select').value)" style="margin-top: 50px;">
                 <option value="" id="judges_selector"></option>
             </select>
 
