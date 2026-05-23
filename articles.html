@@ -167,40 +167,42 @@
 
     <div class="w3-content w3-container">
 
-        <ul style="list-style: none;text-align: center;">
-            <li class="chooseCat" onclick="chooseCat('', this)" style="color:#000;transform: scale(1.1);"><a>全部</a></li>
+        <!-- <ul style="list-style: none;text-align: center;">
+            <li class="chooseCat" onclick="chooseCati('', this)" style="color:#000;transform: scale(1.1);"><a>全部</a></li>
             <li class="navL"><i class="split">/</i></li>
-            <li class="chooseCat" onclick="chooseCat('散文', this)"><a>散文</a></li>
+            <li class="chooseCat" onclick="chooseCati('散文', this)"><a>散文</a></li>
             <li class="navL"><i class="split">/</i></li>
-            <li class="chooseCat" onclick="chooseCat('新詩', this)"><a>新詩</a></li>
+            <li class="chooseCat" onclick="chooseCati('新詩', this)"><a>新詩</a></li>
             <li class="navL"><i class="split">/</i></li>
-            <li class="chooseCat" onclick="chooseCat('小說', this)"><a>小說</a></li>
+            <li class="chooseCat" onclick="chooseCati('小說', this)"><a>小說</a></li>
             <li class="navL"><i class="split">/</i></li>
-            <li class="chooseCat" onclick="chooseCat('評論', this)"><a>評論</a></li>
+            <li class="chooseCat" onclick="chooseCati('評論', this)"><a>評論</a></li>
             <li class="navL"><i class="split">/</i></li>
-            <li class="chooseCat" onclick="chooseCat('活動', this)"><a>活動</a></li>
+            <li class="chooseCat" onclick="chooseCati('活動', this)"><a>活動</a></li>
             <hr style="margin-left: 150px; margin-right: 150px;">
-        </ul>
+        </ul> -->
 
         <!-- HOLDER -->
         <div style="margin-left: 40px;margin-right: 40px;">
             <div class="w3-container">
                 <p class="cardSecondaryTexts w3-left" style="color:rgb(20, 50, 50)">排序：從新到舊</p>
-                <p class="cardSecondaryTexts w3-right" style="color:rgb(20, 50, 50)">1 - 25 / 212 篇</p>
+                <p class="cardSecondaryTexts w3-right" id="articleCountLabel" style="color:rgb(20, 50, 50)">1 - 25 / 212 篇</p>
             </div>
+            <p id="cati" style="display:none;"></p>
             <div id="resultCardHolder">
-                <div id="result_card" class="card" style="width:auto !important; padding:0 !important; display: none;">
-                    <div class="" style="display: block;margin-bottom: 12px;">
-                        <h3 style="display: inline-block;letter-spacing: .2cap;" id="" class="cardTitle card_title_tag">代溝</h3>
-                        <br>
-                        <h6 style="opacity: .5;letter-spacing: .07cap;display: inline;" class="fansyfont card_content_tag">經我上網一查，發現原來「代溝」一詞，早出現於上世紀六十年代一本美國人類學著作，意指兩代人在各方面的差異、對立和衝突。一直以為全名為「跨代溝通」，不料錯得離譜，比較正式的譯名叫「世代隔閡」，當中「隔閡」與「溝」字 --</h6>
-                        <p style="padding-left: 15px;display: inline;opacity: .3;letter-spacing: .2cap;font-size: 13px;">// 未完</p>
-                        <br>
-                        <p style="padding-right: 5px;display: inline-block; opacity: .3; letter-spacing: .3cap;" id="" class="fansyfont card_cat_n_date_tag">散文  |  2025-5-7</p>
-                        <p style="display: inline-block;letter-spacing: .2cap;padding-left: 20px;" id="" class="cardSecondaryTexts card_author_tag">無鋒 著</p>
-                    </div>
-                    <hr>
+                
+            </div>
+            <div id="result_card" class="card" style="width:auto !important; padding:0 !important; display: none;">
+                <div class="" style="display: block;margin-bottom: 12px;">
+                    <h3 style="display: inline-block;letter-spacing: .2cap;" id="" class="cardTitle card_title_tag">代溝</h3>
+                    <br>
+                    <h6 style="opacity: .5;letter-spacing: .07cap;display: inline;" class="fansyfont card_content_tag">經我上網一查，發現原來「代溝」一詞，早出現於上世紀六十年代一本美國人類學著作，意指兩代人在各方面的差異、對立和衝突。一直以為全名為「跨代溝通」，不料錯得離譜，比較正式的譯名叫「世代隔閡」，當中「隔閡」與「溝」字 --</h6>
+                    <p style="padding-left: 15px;display: inline;opacity: .3;letter-spacing: .2cap;font-size: 13px;">// 未完</p>
+                    <br>
+                    <p style="padding-right: 5px;display: inline-block; opacity: .3; letter-spacing: .3cap;" id="" class="fansyfont card_cat_n_date_tag">散文  |  2025-5-7</p>
+                    <p style="display: inline-block;letter-spacing: .2cap;padding-left: 20px;" id="" class="cardSecondaryTexts card_author_tag">無鋒 著</p>
                 </div>
+                <hr>
             </div>
         </div>
         <p class="w3-center">//完</p>
@@ -218,6 +220,8 @@
         // EVENT = E0001
       
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-app.js";
+        var articount = 0;
+        var totalarticount = 0;
       
         const firebaseConfig = {
       
@@ -253,12 +257,24 @@
 
         startup();
 
-        function startup(){
+        export function startup(){
             const dbRef = ref(getDatabase());
             get(child(dbRef, 'articles/countofarticles')).then((snapshot) => {
                 if (snapshot.exists()) {
-                    for(let i = snapshot.val(); i > snapshot.val()-3; i--){ // Sort by time
-                        initiali(("A"+i));
+                    document.getElementById('resultCardHolder').innerHTML = "";
+                    var pageno = document.URL.split("fi=")[1]; //page no.
+                    totalarticount = snapshot.val();
+                    
+                    if(snapshot.val() > 25){
+                        articount = pageno*25;
+                        for(let i = pageno*25; i > (pageno-1)*25+1; i--){
+                            initiali("A"+i);
+                        }
+                    }
+                    else{
+                        for(let i = snapshot.val(); i >= 0; i--){
+                            initiali("A"+i);
+                        }
                     }
                 } else {
                     console.log("No data available");
@@ -268,11 +284,22 @@
             });
         }
 
+        window.startUP = startup;
+
         function initiali(ArticleID){
             const dbRef = ref(getDatabase());
             get(child(dbRef, 'articles/' + ArticleID)).then((snapshot) => {
                 if (snapshot.exists()) {
-                    CreateCard(snapshot.val(), ArticleID);
+                    var cati = document.getElementById("cati").innerHTML;
+                    if(cati != ""){
+                        if(snapshot.val().category == cati){
+                            CreateCard(snapshot.val(), ArticleID); // Return the article
+                        }
+                    }
+                    else{
+                        CreateCard(snapshot.val(), ArticleID); // Return the article
+                    }
+                    
                 } else {
                     console.log("No data available");
                 }
@@ -295,6 +322,13 @@
 
             holder.appendChild(new_card);
             new_card.style.display = 'block';
+
+            if(totalarticount > 25){
+                document.getElementById("articleCountLabel").innerHTML = (pageno-1)*25+1 + " - " + pageno*25 + " / " + snapshot.val() + "篇";
+            }
+            else{
+                document.getElementById("articleCountLabel").innerHTML = "1 - " + snapshot.val() + " / " + snapshot.val() + "篇";
+            }
         }
 
         export function search(keyword, cat){
@@ -384,6 +418,19 @@
             if(document.getElementById("inputs").value != ''){
                 searchFor(document.getElementById("inputs").value, cat);
             }
+        }
+
+        function chooseCati(cate, choosing) {
+            let h = document.getElementsByClassName('chooseCat');
+            for(let i = 0; i < h.length; i++){
+                h[i].style.color='#BBBBBB';
+                h[i].style.transform='scale(1)';
+            }
+            choosing.style.color='#000';
+            choosing.style.transform='scale(1.1)';
+            document.getElementById("cati").innerHTML=cate;
+
+            startUP();
         }
 
         function openSearchMenu(){
