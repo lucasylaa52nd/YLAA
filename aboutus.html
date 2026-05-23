@@ -44,15 +44,15 @@
         <li class="navL notSearch">
             <div onmouseover="document.getElementById('sc').style.transform='scaleY(1)';document.getElementById('scss').style.opacity='1';document.getElementById('scs').style.backgroundColor='rgba(0,0,0,0.1)'" onmouseout="document.getElementById('sc').style.transform='scaleY(0)';document.getElementById('scss').style.opacity='0';document.getElementById('scs').style.backgroundColor='rgba(0,0,0,0)'">
                 <a href="aboutus.html?p=intro" class="tabHeader">關於青文</a>
-                <div id="sc" style="transform-origin: top;transition:0.2s;position:absolute;height:170px;top:39px;right:0;width:100%;background-color:rgb(255, 255, 255);transform: scaleY(0);">
-                    <div id="scss" style="padding-top:60px;transition: 0.1s;" class="w3-container w3-content">
-                        <!--<h1 style="position: absolute; top: 40px; padding-left: 20px; font-size: 25px;" class="fansyfont">關於青文</h1>-->
+                <div id="sc" style="transform-origin: top;transition:0.2s;position:absolute;height:315px;top:39px;right:0;width:100%;background-color:rgb(255, 255, 255);transform: scaleY(0);">
+                    <div id="scss" style="padding-top:95px;transition: 0.1s;" class="w3-container w3-content">
+                        <h1 style="position: absolute; top: 40px; padding-left: 20px; font-size: 25px;" class="fansyfont">關於青文</h1>
                         
-                        <ul style="list-style: none;text-align: left;padding-left:60px;">
-                            <li class="verticalNav"><a style="text-decoration:none;" href="aboutus.html?p=intro"> • 青年文學獎 : 簡介</a></li>
-                            <li class="verticalNav"><a style="text-decoration:none;" href="aboutus.html?p=committees"> • 本屆及歷屆幹事會</a></li>
-                            <!--<li class="verticalNav"><a style="text-decoration:none" href="aboutus.html?p=awardedworks"> • 歷年得奬作品名單</a></li>
-                            <li class="verticalNav"><a style="text-decoration:none" href="aboutus.html?p=judges"> • 歷屆評審</a></li>-->
+                        <ul style="list-style: none;text-align: left;padding-left:60px;margin-top: 15px;">
+                            <li class="verticalNav"><a style="text-decoration:none" href="aboutus.html?p=intro"> • 青年文學獎 : 簡介</a></li>
+                            <li class="verticalNav"><a style="text-decoration:none" href="aboutus.html?p=judges"> • 歷屆評審</a></li>
+                            <li class="verticalNav"><a style="text-decoration:none" href="aboutus.html?p=awardedworks"> • 歷年得奬作品名單</a></li>
+                            <li class="verticalNav"><a style="text-decoration:none" href="aboutus.html?p=committees"> • 本屆及歷屆幹事會</a></li>
                         </ul>
                     </div>
                     <hr>
@@ -208,16 +208,19 @@
         </div>
 
         <div id="awardedworks" style="display: none" class="pages">
-            <h3 class="fansyfont" style="margin-top: 50px;">​第五十二屆青年文學獎幹事會 : </h3>
-            <h1 id="moto" class="fansyfont w3-center" style="margin-top:100px; margin-bottom: 50px;"><i class="fa fa-quote-left"></i><label style="font-weight:bold;letter-spacing:2px;"> &nbsp 文學無隅 &nbsp </label><i class="fa fa-quote-right"></i></h1>
-            <p class="fansyfont paragra">本年五十二屆幹事會以「無隅」作年度主題。無隅，語出《老子》，意指無邊、無界、無角落。我們鼓勵文學愛好者突破框架，探索文學的可能，從生活中某些角落尋找靈感。文學無隅，是一場無限延伸的探索。青年文學獎願繼續與各位年青新晉的創作者攜手，共構文學世界。</p>
+            <select name="awardees" id="awardee_select" onchange="" style="margin-top: 50px;">
+                <option value="" id="awardee_selector"></option>
+            </select>
 
-            <h3 id="committee_no_label" class="fansyfont" style="margin-top: 20px;margin-bottom: 30px;">第五十二屆幹事會成員</h3>
-            <ul style="margin-left: 40px;" id="info_holder">
-            </ul>
-            <div style="display: none;" id="member">
-                <li><h4 class="fansyfont">主席 － 黃清心</h4></li>
-                <p class="w3-opacity" style="margin-bottom: 35px;">香港科技大學工商管理系</p>
+            <h3 id="awardee_no_label" class="fansyfont" style="margin-top: 50px;">​第五十一屆青年文學獎得奬作品 : </h3>
+            <div id="award_result_list"></div>
+            <div style="display: block;" id="awards">
+                <h3 style="display: none; padding-top: 30px; margin-left: 25px;" id="award_class_label" class="fansyfont">新詩初級組</h3>
+                <h4 id="awardTitle" style="display: none; margin-left: 75px;" class="fansyfont">冠軍：</h4>
+                <ul style="display: none;" id="awardslist">
+                    <h4 class="fansyfont" style="margin-left:75px;display: inline;">《大志若魚》</h4>
+                    <p class="fansyfont" style="margin-left:10px;display: inline;opacity: .5;">作者：銅青</p>
+                </ul>
             </div>
 
             <a href="aboutus.html?p=committees" class="text-button w3-left" style="text-decoration:none;text-align: left !important; margin-top: 40px;">← 本屆及歷屆幹事會</a>
@@ -226,6 +229,18 @@
         </div>
 
         <div id="judges" style="display: none" class="pages">
+            <select name="judges" id="judges_select" onchange="" style="margin-top: 50px;">
+                <option value="" id="judges_selector"></option>
+            </select>
+
+            <h3 id="judges_no_label" class="fansyfont" style="margin-top: 50px;">​第五十一屆青年文學獎評審 : </h3>
+            <div id="judges_result_list"></div>
+            <div style="display: block;">
+                <h3 style="display: none; padding-top: 30px; margin-left: 25px;" id="judges_class_label" class="fansyfont">新詩初級組</h3>
+                <ul style="display: block; padding-left: 75px;" id="judges_name_holder">
+                </ul>
+                <li style="padding:10px; display: none;list-style-type: circle" id="judges_name_label"><h4 class="fansyfont">洪曉嫻</h4></li>
+            </div>
 
             <a href="aboutus.html?p=awardedworks" class="text-button w3-left" style="text-decoration:none;text-align: left !important; margin-top: 40px;">← 歴年得奬作品名單</a>
             <br>
@@ -274,6 +289,80 @@
         startup();
 
         function startup(){
+            var url = document.URL;
+            var page_id = url.split("p=")[1];
+            for(let i = 0; i < document.getElementsByClassName('pages').length; i++){
+                document.getElementsByClassName('pages')[i].style.display='none';
+            }
+            document.getElementById(page_id).style.display="block";
+            if(page_id=="committees"){
+                initialiCommitte();
+            }
+            else if(page_id=="awardedworks"){
+                initialiAward();
+            }
+            else if(page_id=="judges"){
+                initialiJudges();
+            }
+        }
+
+        function initialiJudges(){
+            get(child(dbRef, 'judge_info/existingjudges')).then((snapshot) => {
+                if (snapshot.exists()) {
+                    let existingjudges = snapshot.val().split(",");
+                    for(let i = 0; i < existingjudges.length; i++){
+                        let new_select = document.getElementById("judges_selector").cloneNode(true);
+                        new_select.textContent = existingjudges[i];
+                        new_select.value = existingjudges[i];
+                        document.getElementById("judges_select").appendChild(new_select);
+                    }
+                    getJudgesInfo(existingjudges[existingjudges.length-1]);
+                } else {
+                    console.log("No data available");
+                }
+            }).catch((error) => {
+                console.error(error);
+            });
+        }
+
+        export function getJudgesInfo(awardee_no){
+            document.getElementById("judges_result_list").innerHTML = "";
+            document.getElementById("judges_no_label").textContent = "第" + awardee_no + "屆青年文學獎評審 : ";
+
+            get(child(dbRef, 'judge_info/' + awardee_no + "judges")).then((snapshot) => {
+                if (snapshot.exists()) {
+                    let awards = snapshot.val().split("/");
+
+                    for(let i = 0; i < awards.length; i++){
+                        var new_judges_class_label = document.getElementById("judges_class_label").cloneNode(true);
+                        new_judges_class_label.style.display = "block";
+                        new_judges_class_label.innerHTML = awards[i].split(":")[0];
+
+                        document.getElementById("judges_result_list").appendChild(new_judges_class_label);
+
+                        var judges = awards[i].split(":")[1].split(",");
+                        var new_judges_name_holder = document.getElementById("judges_name_holder").cloneNode(true);
+                        new_judges_name_holder.innerHTML='';
+                        for(let j = 0; j < judges.length; j++){
+                            let new_judges_name_label = document.getElementById("judges_name_label").cloneNode(true);
+                            new_judges_name_label.style.display = "block";
+                            new_judges_name_label.children[0].innerHTML = judges[j];
+
+                            new_judges_name_holder.appendChild(new_judges_name_label);
+                        }
+                        document.getElementById("judges_result_list").appendChild(new_judges_name_holder);
+                    }
+                } else {
+                    console.log("No data available");
+                }
+            }).catch((error) => {
+                console.error(error);
+            });
+        }
+
+        window.getAwardInfo = getJudgesInfo;
+
+        function initialiCommitte(){
             get(child(dbRef, 'committee_info/existingcommittees')).then((snapshot) => {
                 if (snapshot.exists()) {
                     let existingcommittees = snapshot.val().split(",");
@@ -291,6 +380,81 @@
                 console.error(error);
             });
         }
+
+        function initialiAward(){
+            get(child(dbRef, 'awardee_info/existingawardees')).then((snapshot) => {
+                if (snapshot.exists()) {
+                    let existingawardees = snapshot.val().split(",");
+                    for(let i = 0; i < existingawardees.length; i++){
+                        let new_select = document.getElementById("awardee_selector").cloneNode(true);
+                        new_select.textContent = existingawardees[i];
+                        new_select.value = existingawardees[i];
+                        document.getElementById("awardee_select").appendChild(new_select);
+                    }
+                    getAwardeeInfo(existingawardees[existingawardees.length-1]);
+                } else {
+                    console.log("No data available");
+                }
+            }).catch((error) => {
+                console.error(error);
+            });
+        }
+
+        export function getAwardeeInfo(awardee_no){
+            document.getElementById("award_result_list").innerHTML = "";
+            document.getElementById("awardee_no_label").textContent = "第" + awardee_no + "屆青年文學獎得奬作品 : ";
+
+            get(child(dbRef, 'awardee_info/' + awardee_no + "awardee")).then((snapshot) => {
+                if (snapshot.exists()) {
+                    let awards = snapshot.val().split("|");
+
+                    for(let i = 0; i < awards.length; i++){
+                        var new_award_class_label = document.getElementById('award_class_label').cloneNode(true);
+                        new_award_class_label.style.display = "block";
+                        new_award_class_label.innerHTML = awards[i].split("~")[0];
+                        document.getElementById("award_result_list").appendChild(new_award_class_label);
+
+                        let s = awards[i].split("~")[1].split("/");
+                        for(let j = 0; j < s.length; j++){
+                            var new_award_title = document.getElementById('awardTitle').cloneNode(true);
+                            new_award_title.textContent = s[j].split(":")[0];
+                            new_award_title.style.display = "block";
+                            document.getElementById("award_result_list").appendChild(new_award_title);
+                            
+                            if(s[j].split(":")[1].includes(",")){
+                                let ss = s[j].split(":")[1].split(",");
+                                for(let k = 0; k < ss.length; k++){
+                                    var new_award = document.getElementById('awardslist').cloneNode(true);
+                                    new_award.style.display = "block";
+
+                                    new_award.children[0].textContent = ss[k].split("(")[0];
+                                    new_award.children[1].textContent = ss[k].split("(")[1].split("!")[0];
+
+                                    document.getElementById("award_result_list").appendChild(new_award);
+                                }
+                            }
+                            else{
+                                var new_award = document.getElementById('awardslist').cloneNode(true);
+                                new_award.style.display = "block";
+
+                                new_award.children[0].innerHTML = s[j].split(":")[1].split("(")[0];
+                                new_award.children[1].innerHTML = s[j].split(":")[1].split("(")[1].split("!")[0];
+
+                                document.getElementById("award_result_list").appendChild(new_award);
+                            }
+                        }
+
+                        
+                    }
+                } else {
+                    console.log("No data available");
+                }
+            }).catch((error) => {
+                console.error(error);
+            });
+        }
+
+        window.getAwardInfo = getAwardeeInfo;
 
         export function getCommitteeInfo(committee_no){
             document.getElementById("info_holder").innerHTML = "";
@@ -411,13 +575,6 @@
     </script>
     
     <script type="text/javascript">
-        var url = document.URL;
-        var page_id = url.split("p=")[1];
-        for(let i = 0; i < document.getElementsByClassName('pages').length; i++){
-            document.getElementsByClassName('pages')[i].style.display='none';
-        }
-        document.getElementById(page_id).style.display="block";
-
         let cat = '';
 
         function chooseCat(cate, choosing) {
