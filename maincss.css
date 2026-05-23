@@ -1,0 +1,266 @@
+body {
+font-family: "Alfa Slab One", serif;
+font-weight: 400;
+font-style: normal;
+}
+
+a:hover{
+cursor: pointer;
+}
+
+.basicfont{
+font-family: "Noto Sans TC", sans-serif;
+font-optical-sizing: auto;
+font-weight: 750;
+font-style: bold;
+}
+
+.basicfont2{
+    font-family: "Noto Sans TC", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: bold;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.tabHeader{
+    text-decoration: none;
+    display:inline-block;
+    position:relative;
+    color: #a1a1a1;
+    z-index:3;
+    transition: 0.3s;
+}
+
+.tabHeader:hover{
+    color:rgb(0, 0, 0);
+}
+
+.tabHeader:after{
+    content:"";
+    position:absolute;
+    background-color:rgb(0, 0, 0);
+    height:1px;
+    width:0%;
+    left:0;
+    bottom:0;
+    transition:0.2s;
+}
+
+.tabHeader:hover:after{
+    width:100%;
+}
+
+.split{
+    text-decoration: none;
+    display:inline-block;
+    position:relative;
+    color: #949494;
+    z-index:3;
+    transition: 0.3s;
+    opacity: .5;
+    font-family: "Tinos", serif;
+    cursor: default;
+}
+
+.navL{
+    display:inline-block;
+    padding-left:20px;
+    padding-right:20px;
+    padding-top: 18px;
+    transition: 0.3s;
+}
+
+.verticalNav{
+    padding-right:15px;
+    padding-left:15px;
+    color:#a1a1a1;
+    display:block;
+    margin-bottom: 20px;
+    font-size:17px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.verticalNav:hover{
+    color:rgb(63, 86, 86);
+}
+
+.navButton{
+    transition:0.3s;
+    width:20px;
+    height:20px;
+    position:fixed;
+    top:19px;
+    z-index:7;
+}
+
+.navButton:hover{
+    transform: scale(1.5, 1.5);
+}
+
+.navButtonNotTab{
+    transition:0.3s;
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:19px;
+    z-index:7;
+}
+
+.navButtonNotTab:hover{
+    transform: scale(1.5, 1.5);
+}
+
+#dark{
+    background-color:black;
+    opacity:0;
+    width:100%;
+    height:100%;
+    transition:0.4s;
+}
+
+.darken_background{
+    pointer-events: none;
+    transform-origin: top;
+    top:0;
+    right:0;
+    transition:0.2s;
+    position:fixed;
+    height:100%;
+    width:100%;
+    background-color:rgba(0,0,0,0);
+    z-index: 2;
+}
+
+.fansyfont{
+    font-family: "Tinos", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+::-moz-selection { /* Code for Firefox */
+    color: rgb(255, 255, 255); /*#ffc40c*/
+    background: #93aec0;
+}
+
+::selection {
+    color: rgb(255, 255, 255); /*#ffc40c*/
+    background: #93aec0;
+}
+
+/* Card */
+
+.card{
+    background-color: rgb(255, 255, 255);
+    width:auto;
+    display: inline-block;
+    border-radius: 10px;
+    transition: .3s;
+    width: 340px;
+    padding: 25px;
+    z-index: 1;
+}
+
+.card:hover{
+    cursor:pointer;
+    opacity: .5;
+    color: rgb(20, 50, 50);
+}
+
+.card:active{
+    transform: scale(.9);
+}
+
+.cardSecondaryTexts{
+    font-family: "Tinos", serif;
+    font-weight: 400;
+    
+    opacity: 0.4;
+}
+
+.cardTitle{
+    font-family: "Tinos", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.text-button{
+    text-align: right;
+    opacity: .5;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.text-button:hover{
+    opacity: .3;
+}
+
+.inputfield{
+    margin-left: 7px;
+    padding: 2px;
+    width: 350px;
+    border:none;
+    border-bottom: 1px solid #b3b3b3;
+    outline: none;
+    transition: 0.3s;
+}
+
+.inputfield:focus{
+    border-bottom: 1px solid #000;
+}
+
+.paragra{
+    text-align: justify;
+    line-height:2.5;
+    letter-spacing:2px;
+    padding-bottom:30px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.chooseCat{
+    color:#BBB;
+    display:inline-block;
+    padding-left:20px;
+    padding-right:20px;
+    padding-top: 18px;
+    transition: 0.2s;
+}
+
+.results{
+    opacity: 1;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.results:hover{
+    opacity: .4;
+}
+
+.slider-wrapper{
+    position: relative;
+    max-width: 40rem;
+    margin: 0 auto;
+    margin-bottom: 60px;
+  }
+
+.slider{
+    display: flex;
+    aspect-ratio: 4 / 3;
+    overflow-x:auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    border-radius: 0rem;
+    -ms-overflow-style: none; /* Hide scrollbar IE and Edge */
+    scrollbar-width: none;
+}
+
+.slider img{
+    flex: 1 0 100%;
+    scroll-snap-align: start;
+    object-fit: cover;
+}
